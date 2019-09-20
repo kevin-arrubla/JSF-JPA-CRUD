@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Tabla Clientes</h1>
+
+<f:view>
+<h:form>
+<h:commandButton value="Nuevo Cliente" action="#{clienteBean.nuevo()}"></h:commandButton>
+<h:dataTable value="#{clienteBean.obtenerClientes()}" var="datos" border="4">
+<h:column>
+<f:facet name="header">id</f:facet>
+<h:outputLabel value="#{datos.id}"></h:outputLabel>
+</h:column>
+
+<h:column>
+<f:facet name="header">nombres</f:facet>
+<h:outputLabel value="#{datos.nombres }"></h:outputLabel>
+</h:column>
+
+<h:column>
+<f:facet name="header">apellidos</f:facet>
+<h:outputLabel value="#{datos.apellidos }"></h:outputLabel>
+</h:column>
+
+<h:column>
+<f:facet name="header">direccion</f:facet>
+<h:outputLabel value="#{datos.direccion }"></h:outputLabel>
+</h:column>
+
+<h:column>
+<f:facet name="header">email</f:facet>
+<h:outputLabel value="#{datos.email }"></h:outputLabel>
+</h:column>
+
+<h:column>
+<f:facet name="header">telefono</f:facet>
+<h:outputLabel value="#{datos.telefono }"></h:outputLabel>
+</h:column>
+
+
+
+<h:column>
+<f:facet name="header">Editar</f:facet>
+<h:commandButton action="#{clienteBean.editar(datos.id)}" value="editar"></h:commandButton>
+</h:column>
+
+<h:column>
+<f:facet name="header">Eliminar</f:facet>
+<h:commandButton action="#{clienteBean.eliminar(datos.id)}" value="Eliminar"></h:commandButton>
+</h:column>
+
+
+</h:dataTable>
+</h:form>
+</f:view>
+</body>
+</html>
